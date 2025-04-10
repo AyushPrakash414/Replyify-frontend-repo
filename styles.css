@@ -7,12 +7,13 @@
 
 /* Body */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     background-color: #f4f4f9;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    padding: 20px;
 }
 
 /* Container */
@@ -30,6 +31,7 @@ h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
 /* Form Elements */
@@ -39,11 +41,13 @@ h1 {
 
 label {
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     color: #555;
+    margin-bottom: 5px;
+    display: block;
 }
 
-textarea {
+textarea, select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -53,20 +57,7 @@ textarea {
     outline: none;
 }
 
-textarea:focus {
-    border-color: #007bff;
-}
-
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    outline: none;
-}
-
-select:focus {
+textarea:focus, select:focus {
     border-color: #007bff;
 }
 
@@ -80,10 +71,18 @@ button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    font-weight: 500;
+    transition: transform 0.1s ease, background-color 0.2s ease; /* Add transition for smooth effect */
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+/* Animation effect when button is clicked */
+button:active {
+    transform: scale(0.95); /* Scale down the button */
+    background-color: #0056b3; /* Change background color on click */
 }
 
 /* Response Box */
@@ -93,12 +92,33 @@ button:hover {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 4px;
-    min-height: 100px;
     font-size: 14px;
     color: #333;
     display: none;
+    max-height: 200px; /* Adjust as needed */
+    overflow-y: auto; /* Enable scrolling within the reply box */
 }
 
 .reply-box.visible {
     display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    textarea, select {
+        font-size: 13px;
+    }
+}
+
+ body {
+    height: 111%;
+    overflow-y: auto;
 }
